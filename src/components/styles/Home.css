@@ -22,3 +22,14 @@
     max-width: 100%;
     margin: auto;
 }
+
+.create{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.create input{
+    width: 400px;
+}

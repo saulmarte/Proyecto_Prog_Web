@@ -11,7 +11,7 @@ const Home = ({ contacts }) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    console.log(contacts);
+
     return (
         <section className='home__container'>
             <article className="home__elements">
@@ -20,17 +20,36 @@ const Home = ({ contacts }) => {
                     <button className='btn btn-primary' onClick={handleShow}>Add contact</button>
                 </div>
 
-                <Modal show={show} onHide={handleClose}>
+                <Modal show={show} onHide={handleClose} >
                     <Modal.Header closeButton>
-                        <Modal.Title>Modal heading</Modal.Title>
+                        <Modal.Title>Create a new contact</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                    <Modal.Body>
+                        <form className='create'>
+                            <div className="mb-3">
+                                <label htmlFor="name" className="form-label">Name</label>
+                                <input type="email" className="form-control" id="name" aria-describedby="emailHelp" />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="lastName" className="form-label">Last Name</label>
+                                <input type="email" className="form-control" id="lastName" aria-describedby="emailHelp" />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="exampleInputPassword1" className="form-label">Mobile</label>
+                                <input type="text" className="form-control" id="exampleInputPassword1" />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="exampleInputPassword1" className="form-label">Email</label>
+                                <input type="text" className="form-control" id="exampleInputPassword1" />
+                            </div>                                      
+                        </form>
+                    </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
-                            Close
+                            Cancel
                         </Button>
                         <Button variant="primary" onClick={handleClose}>
-                            Save Changes
+                            Create
                         </Button>
                     </Modal.Footer>
                 </Modal>
@@ -58,7 +77,7 @@ const Home = ({ contacts }) => {
                                         <td>{contact.lastName}</td>
                                         <td>{contact.email}</td>
                                         <td>{contact.mobile}</td>
-                                        <td><button className='btn btn-warning'>update</button></td>
+                                        <td><button className='btn btn-warning' onClick={handleShow}>update</button></td>
                                         <td><button className='btn btn-danger'>delete</button></td>
                                     </tr>
                                 ))
