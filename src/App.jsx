@@ -20,71 +20,67 @@ const user = [
     password: '123456'
   }
 ];
-
-const contacts = [
-
-  {
-    id: 0,
-    name: 'Evertz',
-    lastName: 'Hamilton',
-    email: 'Evertzhamilton1326@gmail.com',
-    mobile: '0000000000',
-  },
-  {
-    id: 1,
-    name: 'Milsis',
-    lastName: 'Sanchez',
-    email: 'mssz123@gmail.com',
-    mobile: '',
-  },
-  {
-    id: 2,
-    name: 'Ana',
-    lastName: 'Vasquez',
-    email: 'aNavasqueZ@gmail.com',
-    mobile: '',
-  },
-  {
-    id: 3,
-    name: 'Norma',
-    lastName: 'Montero',
-    email: 'norma.otero@gmail.com',
-    mobile: '',
-  },
-  {
-    id: 4,
-    name: 'evertz',
-    lastName: 'Hamilton',
-    email: 'Evertzhamilton1326@gmail.com',
-    mobile: '',
-  },
-  {
-    id: 5,
-    name: 'Luis',
-    lastName: 'Hernandez',
-    email: 'hernan22@gmail.com',
-    mobile: '',
-  },
-  {
-    id: 6,
-    name: 'evertz',
-    lastName: 'Hamilton',
-    email: 'Evertzhamilton1326@gmail.com',
-    mobile: '',
-  },
-  {
-    id: 7,
-    name: 'Juan',
-    lastName: 'Mateo',
-    email: 'mateo57@gmail.com',
-    mobile: '',
-  }
-]
-
 function App() {
 
+  const [contacts, setContacts] = useState([
+    {
+      id: 0,
+      name: 'Evertz',
+      lastName: 'Hamilton',
+      email: 'Evertzhamilton1326@gmail.com',
+      mobile: '0000000000',
+    },
+    {
+      id: 1,
+      name: 'Milsis',
+      lastName: 'Sanchez',
+      email: 'mssz123@gmail.com',
+      mobile: '',
+    },
+    {
+      id: 2,
+      name: 'Ana',
+      lastName: 'Vasquez',
+      email: 'aNavasqueZ@gmail.com',
+      mobile: '',
+    },
+    {
+      id: 3,
+      name: 'Norma',
+      lastName: 'Montero',
+      email: 'norma.otero@gmail.com',
+      mobile: '',
+    },
+    {
+      id: 4,
+      name: 'evertz',
+      lastName: 'Hamilton',
+      email: 'Evertzhamilton1326@gmail.com',
+      mobile: '',
+    },
+    {
+      id: 5,
+      name: 'Luis',
+      lastName: 'Hernandez',
+      email: 'hernan22@gmail.com',
+      mobile: '',
+    },
+    {
+      id: 6,
+      name: 'evertz',
+      lastName: 'Hamilton',
+      email: 'Evertzhamilton1326@gmail.com',
+      mobile: '',
+    },
+    {
+      id: 7,
+      name: 'Juan',
+      lastName: 'Mateo',
+      email: 'mateo57@gmail.com',
+      mobile: '',
+    }
+  ])
   const [isLogged, setisLogged] = useState(false)
-
   const handleIsLogged = () => {
 
   }
@@ -94,7 +90,7 @@ function App() {
       {
         isLogged
           ?
-          <Home contacts={contacts} />
+          <Home contacts={contacts} setContacts={setContacts}/>
           :
           <Login
             setisLogged={setisLogged}

@@ -23,13 +23,18 @@
     margin: auto;
 }
 
-.create{
+.form{
     display: flex;
     flex-direction: column;
     gap: 10px;
     justify-content: center;
     align-items: center;
 }
-.create input{
+.form input{
     width: 400px;
+}
+
+.btns{
+    display: flex;
+    gap: 1em;
 }
