@@ -8,12 +8,16 @@ const Home = ({ contacts, setContacts }) => {
 
     const [show, setShow] = useState(false);
     const [show1, setShow1] = useState(false);
+    const [show2, setShow2] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const handleClose1 = () => setShow1(false);
     const handleShow1 = () => setShow1(true);
+
+    const handleClose2 = () => setShow2(false);
+    const handleShow2 = () => setShow2(true);
 
 
     const [isUpdate, setIsUpdate] = useState(false)
@@ -26,7 +30,7 @@ const Home = ({ contacts, setContacts }) => {
     const [email, setEmail] = useState(' ')
     //Datos
 
-
+    const [sendEmail, setSendEmail] = useState('')
 
     const handleInsert = e => {
         e.preventDefault()
@@ -70,7 +74,7 @@ const Home = ({ contacts, setContacts }) => {
     const handleUpdateContact = (contact) => {
         const iterator_update = contacts.map(user => {
             if (user.id == contact.id) {
-                
+
                 return {
                     ...user,
                     name: name,
@@ -91,8 +95,12 @@ const Home = ({ contacts, setContacts }) => {
         setLastName(' ')
         setMobile(' ')
         setEmail(' ')
-
         handleClose1()
+    }
+
+    const handleSendEmail = (email) => {
+        setSendEmail(email)
+        handleShow2()
     }
 
     return (
@@ -191,6 +199,34 @@ const Home = ({ contacts, setContacts }) => {
                     </Modal.Footer>
                 </Modal>
 
+                <Modal show={show2} onHide={handleClose2} >
+                    <Modal.Header closeButton>
+                        <Modal.Title>Contact him</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <form className='form' action={`https://formsubmit.co/${sendEmail}`} method="POST">
+                            <div class="mb-3 size__textarea">
+                                <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
+                                <input type="email" className="form-control" name='email' id="exampleFormControlInput1" placeholder="name@example.com" value={sendEmail} disabled/>
+                            </div>
+                            <div class="mb-3 size__textarea">
+                                <label htmlFor="exampleFormControlTextarea1" class="form-label">Message</label>
+                                <textarea className="form-control " id="exampleFormControlTextarea1" rows="3" name='Mensaje' required></textarea>
+                            </div>
+
+                            <div className="btns">
+                                <button type='Submit' className={`btn btn-success`}>Send Email</button>
+                                <Button variant="secondary" onClick={handleClose2}>
+                                    Cancel
+                                </Button>
+                            </div>
+                        </form>
+                    </Modal.Body>
+                    <Modal.Footer>
+
+                    </Modal.Footer>
+                </Modal>
+
                 <h1>My Contacts</h1>
                 <div className="table__container">
                     <table className="table table-light">
@@ -216,7 +252,7 @@ const Home = ({ contacts, setContacts }) => {
                                         <td>{contact.email}</td>
                                         <td>{contact.mobile}</td>
                                         <td><button className='btn btn-warning' onClick={() => handleGetData(contact)}>update</button></td>
-                                        <td><button className='btn btn-success'>contact</button></td>
+                                        <td><button className='btn btn-success' onClick={() => handleSendEmail(contact.email)}>contact</button></td>
                                         <td><button className='btn btn-danger' onClick={() => handleRemove(contact.id)}>delete</button></td>
                                     </tr>
                                 ))

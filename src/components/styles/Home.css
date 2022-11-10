@@ -38,3 +38,7 @@
     display: flex;
     gap: 1em;
 }
+
+.size__textarea{
+    width: 90%;
+}
