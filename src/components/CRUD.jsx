@@ -119,22 +119,22 @@ const CRUD = ({ contacts, setContacts }) => {
                         <form className='form' onSubmit={handleInsert}>
 
                             <div className="mb-3">
-                                <label htmlFor="name" className="form-label">Name</label>
+                                <label htmlFor="name" className="form-label">Nombre</label>
                                 <input type="text" className="form-control" id="name" aria-describedby="emailHelp" />
                             </div>
 
                             <div className="mb-3">
-                                <label htmlFor="lastName" className="form-label">Last Name</label>
+                                <label htmlFor="lastName" className="form-label">Apellido</label>
                                 <input type="text" className="form-control" id="lastName" aria-describedby="emailHelp" />
                             </div>
 
                             <div className="mb-3">
-                                <label htmlFor="mobile" className="form-label">Mobile</label>
+                                <label htmlFor="mobile" className="form-label">Telefono</label>
                                 <input type="text" className="form-control" id="mobile" />
                             </div>
 
                             <div className="mb-3">
-                                <label htmlFor="email" className="form-label">Email</label>
+                                <label htmlFor="email" className="form-label">Correo</label>
                                 <input type="email" className="form-control" id="email" />
                             </div>
 
@@ -159,22 +159,22 @@ const CRUD = ({ contacts, setContacts }) => {
                         <form className='form' onSubmit={handleUpdate}>
 
                             <div className="mb-3">
-                                <label htmlFor="name" className="form-label">Name</label>
+                                <label htmlFor="name" className="form-label">Nombre</label>
                                 <input type="text" className="form-control" id="name" aria-describedby="emailHelp" value={name == ' ' ? contact.name : name} onChange={e => setName(e.target.value)} name="name" />
                             </div>
 
                             <div className="mb-3">
-                                <label htmlFor="lastName" className="form-label">Last Name</label>
+                                <label htmlFor="lastName" className="form-label">Apellido</label>
                                 <input type="text" className="form-control" id="lastName" aria-describedby="emailHelp" value={lastName == ' ' ? contact.lastName : lastName} onChange={e => setLastName(e.target.value)} name="lastName" />
                             </div>
 
                             <div className="mb-3">
-                                <label htmlFor="mobile" className="form-label">Mobile</label>
+                                <label htmlFor="mobile" className="form-label">Telefono</label>
                                 <input type="text" className="form-control" id="mobile" value={mobile == ' ' ? contact.mobile : mobile} onChange={e => setMobile(e.target.value)} name="mobile" />
                             </div>
 
                             <div className="mb-3">
-                                <label htmlFor="email" className="form-label">Email</label>
+                                <label htmlFor="email" className="form-label">Correo</label>
                                 <input type="email" className="form-control" id="email" value={email == ' ' ? contact.email : email} onChange={e => setEmail(e.target.value)} name="email" />
                             </div>
 
@@ -198,11 +198,11 @@ const CRUD = ({ contacts, setContacts }) => {
                     <Modal.Body>
                         <form className='form' action={`https://formsubmit.co/${sendEmail}`} method="POST">
                             <div class="mb-3 size__textarea">
-                                <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
+                                <label htmlFor="exampleFormControlInput1" className="form-label">Correo Electronico</label>
                                 <input type="email" className="form-control" name='email' id="exampleFormControlInput1" placeholder="name@example.com" value={sendEmail} disabled />
                             </div>
                             <div class="mb-3 size__textarea">
-                                <label htmlFor="exampleFormControlTextarea1" class="form-label">Message</label>
+                                <label htmlFor="exampleFormControlTextarea1" class="form-label">Mensaje</label>
                                 <textarea className="form-control " id="exampleFormControlTextarea1" rows="3" name='Mensaje' required></textarea>
                             </div>
 
