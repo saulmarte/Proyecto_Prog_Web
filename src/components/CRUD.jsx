@@ -230,7 +230,6 @@ const CRUD = ({ contacts, setContacts }) => {
                     <Table className="table table-light">
                         <thead>
                             <tr class="data-row">
-                                <th scope="col">No.</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Apellido</th>
                                 <th scope="col">Email</th>
@@ -245,7 +244,6 @@ const CRUD = ({ contacts, setContacts }) => {
                             {
                                 contacts.map(contact => (
                                     <tr key={contact.id}>
-                                        <th scope="row">{contact.id}</th>
                                         <td>{contact.name}</td>
                                         <td>{contact.lastName}</td>
                                         <td>{contact.email}</td>

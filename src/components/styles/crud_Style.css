@@ -34,6 +34,11 @@
     width: 400px;
 }
 
+.table_container td,
+th {
+    color: black;
+}
+
 .btns {
     display: flex;
     gap: 1em;
