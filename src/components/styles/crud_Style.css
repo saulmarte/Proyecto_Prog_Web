@@ -1,44 +1,44 @@
-.home__container{
-    background-color: white;
+.home__container {
+    background-color: #70A9A1;
     width: 100%;
 }
 
-.home__elements{
+.home__elements {
     width: 1200px;
     margin: auto;
     position: relative;
     top: 60px;
 }
 
-.btn__insert{
+.Tittle {
+    font-weight: bold;
+}
+
+.btn__insert {
     width: 100%;
     margin-bottom: 10px;
- 
+
     display: flex;
     justify-content: end;
 }
 
-.table__container{
-    max-width: 100%;
-    margin: auto;
-}
-
-.form{
+.form {
     display: flex;
     flex-direction: column;
     gap: 10px;
     justify-content: center;
     align-items: center;
 }
-.form input{
+
+.form input {
     width: 400px;
 }
 
-.btns{
+.btns {
     display: flex;
     gap: 1em;
 }
 
-.size__textarea{
+.size__textarea {
     width: 90%;
 }

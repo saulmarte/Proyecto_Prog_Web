@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
-import ModalInsertar from './ModalInsertar';
-import './styles/Home.css'
+import './styles/crud_Style.css'
+import 'bootstrap/dist/css/bootstrap.css';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import {
+    Table,
+    Container,
+} from "reactstrap";
 
-const Home = ({ contacts, setContacts }) => {
+const CRUD = ({ contacts, setContacts }) => {
 
     const [show, setShow] = useState(false);
     const [show1, setShow1] = useState(false);
@@ -107,20 +111,12 @@ const Home = ({ contacts, setContacts }) => {
         <section className='home__container'>
             <article className="home__elements">
 
-                <div className="btn__insert">
-                    <button className='btn btn-primary' onClick={handleInsert}>Add contact</button>
-                </div>
-
                 <Modal show={show} onHide={handleClose} >
                     <Modal.Header closeButton>
-                        <Modal.Title>Create a new contact</Modal.Title>
+                        <Modal.Title>Nuevo Contacto</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <form className='form' onSubmit={handleInsert}>
-                            <div className="mb-3">
-                                <label htmlFor="id" className="form-label">ID</label>
-                                <input type="text" className="form-control" id="id" aria-describedby="emailHelp" value={contacts.length} disabled />
-                            </div>
 
                             <div className="mb-3">
                                 <label htmlFor="name" className="form-label">Name</label>
@@ -143,9 +139,9 @@ const Home = ({ contacts, setContacts }) => {
                             </div>
 
                             <div className="btns">
-                                <button type='Submit' className='btn btn-primary'>Create</button>
-                                <Button variant="secondary" onClick={handleClose}>
-                                    Cancel
+                                <button type='Submit' className='btn btn-warning'>Create</button>
+                                <Button variant="dark" onClick={handleClose}>
+                                    Cerrar
                                 </Button>
                             </div>
                         </form>
@@ -161,10 +157,6 @@ const Home = ({ contacts, setContacts }) => {
                     </Modal.Header>
                     <Modal.Body>
                         <form className='form' onSubmit={handleUpdate}>
-                            <div className="mb-3">
-                                <label htmlFor="id" className="form-label">ID</label>
-                                <input type="text" className="form-control" id="id" aria-describedby="emailHelp" value={contact.id} disabled />
-                            </div>
 
                             <div className="mb-3">
                                 <label htmlFor="name" className="form-label">Name</label>
@@ -187,8 +179,8 @@ const Home = ({ contacts, setContacts }) => {
                             </div>
 
                             <div className="btns">
-                                <button type='Submit' className={`btn btn-primary`}>Update</button>
-                                <Button variant="secondary" onClick={handleClose1}>
+                                <button type='Submit' class='btn btn-warning'>Update</button>
+                                <Button variant="dark" onClick={handleClose1}>
                                     Cancel
                                 </Button>
                             </div>
@@ -207,7 +199,7 @@ const Home = ({ contacts, setContacts }) => {
                         <form className='form' action={`https://formsubmit.co/${sendEmail}`} method="POST">
                             <div class="mb-3 size__textarea">
                                 <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
-                                <input type="email" className="form-control" name='email' id="exampleFormControlInput1" placeholder="name@example.com" value={sendEmail} disabled/>
+                                <input type="email" className="form-control" name='email' id="exampleFormControlInput1" placeholder="name@example.com" value={sendEmail} disabled />
                             </div>
                             <div class="mb-3 size__textarea">
                                 <label htmlFor="exampleFormControlTextarea1" class="form-label">Message</label>
@@ -215,8 +207,8 @@ const Home = ({ contacts, setContacts }) => {
                             </div>
 
                             <div className="btns">
-                                <button type='Submit' className={`btn btn-success`}>Send Email</button>
-                                <Button variant="secondary" onClick={handleClose2}>
+                                <button type='Submit' class='btn btn-warning'>Send Email</button>
+                                <Button variant="dark" onClick={handleClose2}>
                                     Cancel
                                 </Button>
                             </div>
@@ -227,21 +219,28 @@ const Home = ({ contacts, setContacts }) => {
                     </Modal.Footer>
                 </Modal>
 
-                <h1>My Contacts</h1>
-                <div className="table__container">
-                    <table className="table table-light">
+                <h1 className='Tittle'>Lista de Contactos</h1>
+
+                <div className="btn__insert">
+                    <button className='btn btn-warning' onClick={handleInsert}>Add contact</button>
+                </div>
+
+                <Container className="table__container">
+                    <br />
+                    <Table className="table table-light">
                         <thead>
-                            <tr>
+                            <tr class="data-row">
                                 <th scope="col">No.</th>
-                                <th scope="col">First Name</th>
-                                <th scope="col">Last Name</th>
-                                <th scope="col">Email Address</th>
-                                <th scope="col">Mobile</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Telefono</th>
+                                <th scope="col">Send Email</th>
                                 <th scope="col">Update</th>
-                                <th scope="col">Contact</th>
                                 <th scope="col">Delete</th>
                             </tr>
                         </thead>
+
                         <tbody>
                             {
                                 contacts.map(contact => (
@@ -251,21 +250,19 @@ const Home = ({ contacts, setContacts }) => {
                                         <td>{contact.lastName}</td>
                                         <td>{contact.email}</td>
                                         <td>{contact.mobile}</td>
-                                        <td><button className='btn btn-warning' onClick={() => handleGetData(contact)}>update</button></td>
-                                        <td><button className='btn btn-success' onClick={() => handleSendEmail(contact.email)}>contact</button></td>
-                                        <td><button className='btn btn-danger' onClick={() => handleRemove(contact.id)}>delete</button></td>
+                                        <td><button className='btn btn-dark btn_email' onClick={() => handleSendEmail(contact.email)}>contact</button></td>
+                                        <td><button className='btn btn-warning btn_update' onClick={() => handleGetData(contact)}>update</button></td>
+                                        <td><button className='btn btn-dark btn_delete' onClick={() => handleRemove(contact.id)}>delete</button></td>
                                     </tr>
                                 ))
                             }
                         </tbody>
-                    </table>
-                </div>
-
+                    </Table>
+                </Container>
             </article>
 
-
-        </section>
+        </section >
     )
 }
 
-export default Home
+export default CRUD
