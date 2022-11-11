@@ -222,7 +222,7 @@ const CRUD = ({ contacts, setContacts }) => {
                 <h1 className='Tittle'>Lista de Contactos</h1>
 
                 <div className="btn__insert">
-                    <button className='btn btn-warning' onClick={handleInsert}>Add contact</button>
+                    <button className='btn btn-warning' onClick={handleInsert}>Añadir Contacto</button>
                 </div>
 
                 <Container className="table__container">
@@ -250,9 +250,9 @@ const CRUD = ({ contacts, setContacts }) => {
                                         <td>{contact.lastName}</td>
                                         <td>{contact.email}</td>
                                         <td>{contact.mobile}</td>
-                                        <td><button className='btn btn-dark btn_email' onClick={() => handleSendEmail(contact.email)}>contact</button></td>
-                                        <td><button className='btn btn-warning btn_update' onClick={() => handleGetData(contact)}>update</button></td>
-                                        <td><button className='btn btn-dark btn_delete' onClick={() => handleRemove(contact.id)}>delete</button></td>
+                                        <td><button className='btn btn-dark btn_email' onClick={() => handleSendEmail(contact.email)}>Mailer</button></td>
+                                        <td><button className='btn btn-warning btn_update' onClick={() => handleGetData(contact)}>Update</button></td>
+                                        <td><button className='btn btn-dark btn_delete' onClick={() => handleRemove(contact.id)}>Delete</button></td>
                                     </tr>
                                 ))
                             }
